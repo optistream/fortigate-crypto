@@ -46,48 +46,48 @@ int main(int argc, char **argv)
     unsigned char *md1 = NULL;
     unsigned char *md2 = NULL;
     
-	if((mdctx = EVP_MD_CTX_new()) == NULL)
-		return 1;
+    if((mdctx = EVP_MD_CTX_new()) == NULL)
+        return 1;
 
-	if(EVP_DigestInit_ex(mdctx, EVP_sha256(), NULL) != 1)
-		return 1;
+    if(EVP_DigestInit_ex(mdctx, EVP_sha256(), NULL) != 1)
+        return 1;
 
-	if(EVP_DigestUpdate(mdctx, (unsigned char*)g_FirmwareSeed + 3, 29) != 1)
-		return 1;
+    if(EVP_DigestUpdate(mdctx, (unsigned char*)g_FirmwareSeed + 3, 29) != 1)
+        return 1;
 
-	if(EVP_DigestUpdate(mdctx, (unsigned char*)g_FirmwareSeed, 3) != 1)
-		return 1;
+    if(EVP_DigestUpdate(mdctx, (unsigned char*)g_FirmwareSeed, 3) != 1)
+        return 1;
 
-	if((md1 = (unsigned char *)OPENSSL_malloc(EVP_MD_size(EVP_sha256()))) == NULL)
-		return 1;
+    if((md1 = (unsigned char *)OPENSSL_malloc(EVP_MD_size(EVP_sha256()))) == NULL)
+        return 1;
 
-	if(EVP_DigestFinal_ex(mdctx, md1, NULL) != 1)
-		return 1;
+    if(EVP_DigestFinal_ex(mdctx, md1, NULL) != 1)
+        return 1;
 
-	EVP_MD_CTX_free(mdctx);
+    EVP_MD_CTX_free(mdctx);
 
     printhex(md1, 32);
     printf("\n");
 
-	if((mdctx = EVP_MD_CTX_new()) == NULL)
-		return 1;
+    if((mdctx = EVP_MD_CTX_new()) == NULL)
+        return 1;
 
-	if(EVP_DigestInit_ex(mdctx, EVP_sha256(), NULL) != 1)
-		return 1;
+    if(EVP_DigestInit_ex(mdctx, EVP_sha256(), NULL) != 1)
+        return 1;
 
-	if(EVP_DigestUpdate(mdctx, (unsigned char*)g_FirmwareSeed + 1, 31) != 1)
-		return 1;
+    if(EVP_DigestUpdate(mdctx, (unsigned char*)g_FirmwareSeed + 1, 31) != 1)
+        return 1;
 
-	if(EVP_DigestUpdate(mdctx, (unsigned char*)g_FirmwareSeed, 1) != 1)
-		return 1;
+    if(EVP_DigestUpdate(mdctx, (unsigned char*)g_FirmwareSeed, 1) != 1)
+        return 1;
 
-	if((md2 = (unsigned char *)OPENSSL_malloc(EVP_MD_size(EVP_sha256()))) == NULL)
-		return 1;
+    if((md2 = (unsigned char *)OPENSSL_malloc(EVP_MD_size(EVP_sha256()))) == NULL)
+        return 1;
 
-	if(EVP_DigestFinal_ex(mdctx, md2, NULL) != 1)
-		return 1;
+    if(EVP_DigestFinal_ex(mdctx, md2, NULL) != 1)
+        return 1;
 
-	EVP_MD_CTX_free(mdctx);
+    EVP_MD_CTX_free(mdctx);
 
     printhex(md2, 32);
     printf("\n");

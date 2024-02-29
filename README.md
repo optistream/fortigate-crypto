@@ -18,7 +18,7 @@ $ make
 
 ## 1. Get rootfs encryption key from kernel
 
-This script actually analyzes `fgt_verifier_pub_key` function to retrieve encryption seed:
+This script actually analyzes `fgt_verifier_pub_key` function to retrieve encryption seed (using `miasm==0.1.5`):
 
 ```bash
 $ python3 -m venv .venv
@@ -44,6 +44,8 @@ Writing to rootfs.gz.x64.v7.4.3.decrypted...
 # Links
 
 [https://github.com/Ginurx/chacha20-c](https://github.com/Ginurx/chacha20-c)
+
+[https://github.com/cea-sec/miasm](https://github.com/cea-sec/miasm)
 
 # Author
 

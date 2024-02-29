@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 
+import sys
 import binascii
 from miasm.analysis.binary import Container
 from miasm.analysis.machine import Machine
@@ -26,6 +27,9 @@ match cont.arch:
     case "aarch64l":
         ret_val_reg = machine.mn.regs.X0
         arg_val_reg = machine.mn.regs.X1
+    case _:
+        sys.stderr.write("OS architecture not supported!")
+        sys.exit(1)
         
 mdis = machine.dis_engine(cont.bin_stream, loc_db=cont.loc_db)
 addr = loc_db.get_name_offset("fgt_verifier_pub_key")
