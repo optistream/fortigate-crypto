@@ -7,7 +7,7 @@ This is implemented inside the kernel (`flatkc`) within function `fgt_verify_dec
 - `decrypt_rootfs`/`encrypt_rootfs`: decrypt/encrypt `rootfs.gz` using previously retrieved encryption key
 - `decrypt_rsapubkey`: auxiliary tool for decrypting RSA public key embedded in kernel for rootfs signature check (`fgt_verifier_pub_key`)
 
-Tested on: FortiOS 7.4.2, 7.4.3
+Tested on: FortiOS 7.4.2, 7.4.3 (x64 & aarch64)
 
 ## 0. Build
 
