@@ -43,6 +43,8 @@ Writing to rootfs.gz.x64.v7.4.3.decrypted...
 
 # Links
 
+[https://www.optistream.io/blogs/tech/fortigate-firmware-analysis](https://www.optistream.io/blogs/tech/fortigate-firmware-analysis)
+
 [https://github.com/Ginurx/chacha20-c](https://github.com/Ginurx/chacha20-c)
 
 [https://github.com/cea-sec/miasm](https://github.com/cea-sec/miasm)
